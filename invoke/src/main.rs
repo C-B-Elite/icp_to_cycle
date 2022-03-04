@@ -115,25 +115,3 @@ async fn get_cycle_balance(canister_id: &Principal) -> () {
         Decode!(&response, u128).expect("decode response failed")
     )
 }
-
-async fn get_aid(canister_id: &Principal) -> () {
-    let url = "https://ic0.app".to_string();
-    let transport = ReqwestHttpReplicaV2Transport::create(url).unwrap();
-    let agent = Agent::builder()
-        .with_transport(transport)
-        .build()
-        .expect("build agent error");
-    let _ = agent.fetch_root_key();
-    let response = agent
-        .query(canister_id, "aid")
-        .with_arg(Encode!().unwrap())
-        .call()
-        .await
-        .expect("get cycle balance failed");
-    let response = Decode!(&response, String).expect("decode response failed");
-    println!("{}", response)
-}
-
-async fn test() -> () {
-    let canister_id = Principal::from_text("aaaaa-aa").unwrap();
-}
