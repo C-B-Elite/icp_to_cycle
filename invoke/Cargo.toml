@@ -1,0 +1,22 @@
+[package]
+name = "invoke"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ic-agent = "0.11"
+garcon = "0.2.3"
+tokio = { version = "1", features = ["full"] }
+reqwest = "0.11.4"
+candid = "0.7.5"
+serde = "1"
+ring = { version = "0.16.11", features = ["std"] }
+ic-utils = "0.11.0"
+sha2 = "0.10.1"
+rayon = "1.5.1"
+ic-types = "0.3.0"
+openssl = "0.10.38"
+futures = "0.3.21"
+hex = "0.4.3"
