@@ -128,7 +128,6 @@ actor self{
             let default = Blob.fromArrayMut(Array.init<Nat8>(32, 0:Nat8));
             let self_subaccount = Blob.fromArray(U.principalToSubAccount(Principal.fromActor(self)));
             let self_cycle_ai = A.accountIdentifier(CYCLE_MINTING_CANISTER, self_subaccount);
-            let self_ai = A.accountIdentifier(Principal.fromActor(self), default);
             switch(await Ledger.transfer({
                 to = self_cycle_ai;
                 fee = { e8s = 10_000 }; // 0.0001 icp
